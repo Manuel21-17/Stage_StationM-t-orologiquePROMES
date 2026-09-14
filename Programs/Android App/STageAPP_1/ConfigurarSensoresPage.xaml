@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="STageAPP_1.ConfigurarSensoresPage"
+    Title="Configurer les capteurs"
+    BackgroundColor="{StaticResource ColorFondoPrincipal}">
+
+	<ScrollView>
+		<StackLayout
+            x:Name="ContenedorSensores"
+            Padding="20"
+            Spacing="15">
+
+			<Label
+                Text="Affectation des capteurs"
+                FontSize="26"
+                FontAttributes="Bold"
+                HorizontalTextAlignment="Center"
+                TextColor="{StaticResource ColorTextoPrincipal}"
+                Margin="0,10,0,12"/>
+
+			<!--
+                Botón de acción de la pantalla.
+
+                Va perfilado y no relleno a propósito: los botones
+                rellenos de la app son de navegación (menú principal y
+                visualizar datos). Un contorno lo distingue como una
+                acción que ocurre AQUÍ, sin competir con ellos ni con
+                los azules de sección.
+
+                El fondo es el de la página, no "Transparent", porque
+                el renderer de Android dibuja el borde de forma más
+                fiable con un color sólido detrás.
+            -->
+			<Button
+                x:Name="BotonAccionSensores"
+                Text="Appliquer la configuration"
+                FontSize="17"
+                FontAttributes="Bold"
+                HeightRequest="52"
+                CornerRadius="12"
+                BackgroundColor="{StaticResource ColorFondoPrincipal}"
+                BorderColor="{StaticResource ColorAcento}"
+                BorderWidth="1.5"
+                TextColor="{StaticResource ColorAcento}"
+                Margin="0,0,0,4"
+                Clicked="OnBotonAccionSensoresPulsado"/>
+
+			<Label
+                x:Name="LabelEstadoConfiguracion"
+                Text="Affectez les capteurs puis appuyez pour les envoyer au Portenta."
+                FontSize="13"
+                TextColor="{StaticResource ColorTextoSecundario}"
+                HorizontalTextAlignment="Center"
+                LineBreakMode="WordWrap"
+                Margin="0,0,0,4"/>
+
+		</StackLayout>
+	</ScrollView>
+
+</ContentPage>

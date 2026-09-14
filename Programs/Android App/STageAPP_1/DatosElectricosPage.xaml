@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="STageAPP_1.DatosElectricosPage"
+    Title="Données électriques"
+    BackgroundColor="{StaticResource ColorFondoPrincipal}">
+    <ScrollView>
+        <StackLayout
+            x:Name="ContenedorGraficas"
+            Padding="16"
+            Spacing="16">
+            <Label
+                Text="Surveillance électrique"
+                FontSize="27"
+                FontAttributes="Bold"
+                TextColor="{StaticResource ColorTextoPrincipal}"
+                HorizontalTextAlignment="Center"
+                Margin="0,8,0,0"/>
+            <Label
+                Text="Tension et courant en temps réel"
+                FontSize="15"
+                TextColor="{StaticResource ColorTextoSecundario}"
+                HorizontalTextAlignment="Center"
+                Margin="0,0,0,10"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

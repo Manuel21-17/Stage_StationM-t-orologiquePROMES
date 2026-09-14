@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="STageAPP_1.App">
+    <Application.Resources>
+
+        <!--
+            ================================================
+            PALETA DE COLORES - TEMA OSCURO
+            ================================================
+            Todo el tema de la app se define aquí. Si más
+            adelante quieres ajustar algún color, este es
+            el único lugar que necesitas tocar: tanto las
+            páginas XAML (con StaticResource) como el código
+            C# de DatosElectricosPage lo leen desde aquí.
+        -->
+
+        <!-- Fondos -->
+        <Color x:Key="ColorFondoPrincipal">#12141A</Color>
+        <Color x:Key="ColorTarjeta">#1E2128</Color>
+        <Color x:Key="ColorBordeTarjeta">#2A2E37</Color>
+        <Color x:Key="ColorDivisor">#2A2E37</Color>
+
+        <!-- Textos -->
+        <Color x:Key="ColorTextoPrincipal">#F5F6F8</Color>
+        <Color x:Key="ColorTextoSecundario">#9AA3B2</Color>
+
+        <!--
+            Acento. Dos tonos con papeles distintos:
+
+            ColorAcento       texto y detalles SOBRE el fondo oscuro.
+                              Necesita ser claro (4.89:1 sobre #12141A).
+
+            ColorAcentoBoton  relleno de botones, con texto blanco
+                              ENCIMA. Necesita ser más oscuro para que
+                              ese blanco se lea (4.78:1 contra #FFFFFF).
+
+            Usar el mismo tono para ambos deja uno de los dos por
+            debajo del mínimo legible; no es un matiz estético.
+        -->
+        <Color x:Key="ColorAcento">#3D7DFF</Color>
+        <Color x:Key="ColorAcentoBoton">#2F6BE8</Color>
+        <Color x:Key="ColorAcentoTexto">#FFFFFF</Color>
+
+        <!-- Indicadores de estado BLE -->
+        <!--
+            El gris inactivo se usa sobre ColorTarjeta, tanto en el
+            punto de estado BLE como en la pista apagada del
+            interruptor. El tono anterior (#5B6472) se quedaba en
+            2.69:1 contra la tarjeta, por debajo del 3:1 que exige
+            un elemento gráfico para distinguirse del fondo.
+        -->
+        <Color x:Key="ColorIndicadorInactivo">#6E7889</Color>
+        <Color x:Key="ColorIndicadorActivo">#3DDC97</Color>
+        <Color x:Key="ColorIndicadorError">#D92D20</Color>
+        <Color x:Key="ColorIndicadorProceso">#F79009</Color>
+
+        <!--
+            Colores de medición.
+
+            Todos son tonos claros: se leen sobre las tarjetas
+            oscuras (#1E2128). Los equivalentes oscuros de la
+            paleta Material (#1565C0, #00796B, #E65100...) NO
+            sirven aquí: sobre la tarjeta quedan por debajo de
+            la relación de contraste 3:1 y resultan ilegibles.
+        -->
+        <Color x:Key="ColorCorriente">#26A69A</Color>
+        <Color x:Key="ColorTension">#F5A623</Color>
+        <Color x:Key="ColorMeteorologico">#B39DDB</Color>
+        <Color x:Key="ColorTemperatura">#FFA726</Color>
+        <Color x:Key="ColorHumedad">#64B5F6</Color>
+        <Color x:Key="ColorViento">#4DB6AC</Color>
+        <Color x:Key="ColorDireccionViento">#64B5F6</Color>
+
+        <!--
+            Radiación solar.
+
+            Antes había dos claves para esto, ColorPotenciaLuminica y
+            ColorRadiacionSolar, con tonos distintos. Son la MISMA
+            magnitud (irradiancia en W/m²) medida por sensores
+            distintos, así que comparten un solo color: el piranómetro
+            de la Davis y las celdas de referencia del Portenta se
+            leen como lo que son, la misma variable.
+        -->
+        <Color x:Key="ColorRadiacionSolar">#FFD54F</Color>
+
+        <!--
+            Resto de magnitudes de la estación Davis Vantage Pro2
+            Plus, replicando los paneles del dashboard de Grafana.
+        -->
+        <Color x:Key="ColorRacha">#80CBC4</Color>
+        <Color x:Key="ColorUV">#BA68C8</Color>
+        <Color x:Key="ColorLluvia">#81D4FA</Color>
+        <Color x:Key="ColorRssi">#AED581</Color>
+
+        <!--
+            Rejilla y ejes de las gráficas.
+
+            La rejilla es deliberadamente tenue: tiene que orientar la
+            lectura sin competir con la serie de datos. El marco es algo
+            más marcado para delimitar la zona de dibujo.
+        -->
+        <Color x:Key="ColorRejillaGrafica">#2E3440</Color>
+        <Color x:Key="ColorEjesGrafica">#4A5262</Color>
+
+        <!-- Brújula de dirección del viento -->
+        <Color x:Key="ColorBrujulaFondo">#161920</Color>
+        <Color x:Key="ColorBrujulaBorde">#2A2E37</Color>
+        <Color x:Key="ColorNorte">#EF5350</Color>
+
+    </Application.Resources>
+</Application>

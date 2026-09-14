@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:STageAPP_1"
+    x:Class="STageAPP_1.DatosMeteorologicosPage"
+    Title="Données météorologiques"
+    BackgroundColor="{StaticResource ColorFondoPrincipal}">
+
+    <ScrollView>
+
+        <StackLayout
+            Padding="16"
+            Spacing="16">
+
+            <Label
+                Text="Station météorologique"
+                FontSize="27"
+                FontAttributes="Bold"
+                TextColor="{StaticResource ColorTextoPrincipal}"
+                HorizontalTextAlignment="Center"
+                Margin="0,8,0,5"/>
+
+            <Label
+                Text="Surveillance en temps réel"
+                FontSize="15"
+                TextColor="{StaticResource ColorTextoSecundario}"
+                HorizontalTextAlignment="Center"
+                Margin="0,0,0,10"/>
+
+            <!--
+                Indicateurs de valeur actuelle, équivalents à la rangée
+                de panneaux "stat" en tête du tableau de bord Grafana.
+            -->
+
+            <Grid
+                ColumnSpacing="12"
+                RowSpacing="12">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Frame
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    BackgroundColor="{StaticResource ColorTarjeta}"
+                    BorderColor="{StaticResource ColorBordeTarjeta}"
+                    CornerRadius="15"
+                    HasShadow="False"
+                    Padding="16">
+
+                    <StackLayout Spacing="5">
+
+                        <Label
+                            Text="Température actuelle"
+                            FontSize="14"
+                            TextColor="{StaticResource ColorTextoSecundario}"/>
+
+                        <Label
+                            x:Name="LabelTemperatura"
+                            Text="-- °C"
+                            FontSize="28"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource ColorTemperatura}"/>
+
+                    </StackLayout>
+
+                </Frame>
+
+                <Frame
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    BackgroundColor="{StaticResource ColorTarjeta}"
+                    BorderColor="{StaticResource ColorBordeTarjeta}"
+                    CornerRadius="15"
+                    HasShadow="False"
+                    Padding="16">
+
+                    <StackLayout Spacing="5">
+
+                        <Label
+                            Text="Température interne"
+                            FontSize="14"
+                            TextColor="{StaticResource ColorTextoSecundario}"/>
+
+                        <Label
+                            x:Name="LabelTemperaturaInterna"
+                            Text="-- °C"
+                            FontSize="28"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource ColorTemperatura}"/>
+
+                    </StackLayout>
+
+                </Frame>
+
+                <Frame
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    BackgroundColor="{StaticResource ColorTarjeta}"
+                    BorderColor="{StaticResource ColorBordeTarjeta}"
+                    CornerRadius="15"
+                    HasShadow="False"
+                    Padding="16">
+
+                    <StackLayout Spacing="5">
+
+                        <Label
+                            Text="Cellule de référence 1"
+                            FontSize="14"
+                            TextColor="{StaticResource ColorTextoSecundario}"/>
+
+                        <Label
+                            x:Name="LabelCeldaReferencia1"
+                            Text="-- W/m²"
+                            FontSize="28"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource ColorRadiacionSolar}"/>
+
+                    </StackLayout>
+
+                </Frame>
+
+                <Frame
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    BackgroundColor="{StaticResource ColorTarjeta}"
+                    BorderColor="{StaticResource ColorBordeTarjeta}"
+                    CornerRadius="15"
+                    HasShadow="False"
+                    Padding="16">
+
+                    <StackLayout Spacing="5">
+
+                        <Label
+                            Text="Cellule de référence 2"
+                            FontSize="14"
+                            TextColor="{StaticResource ColorTextoSecundario}"/>
+
+                        <Label
+                            x:Name="LabelCeldaReferencia2"
+                            Text="-- W/m²"
+                            FontSize="28"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource ColorRadiacionSolar}"/>
+
+                    </StackLayout>
+
+                </Frame>
+
+                <Frame
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    BackgroundColor="{StaticResource ColorTarjeta}"
+                    BorderColor="{StaticResource ColorBordeTarjeta}"
+                    CornerRadius="15"
+                    HasShadow="False"
+                    Padding="16">
+
+                    <StackLayout Spacing="5">
+
+                        <Label
+                            Text="Humidité"
+                            FontSize="14"
+                            TextColor="{StaticResource ColorTextoSecundario}"/>
+
+                        <Label
+                            x:Name="LabelHumedad"
+                            Text="-- %"
+                            FontSize="28"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource ColorHumedad}"/>
+
+                    </StackLayout>
+
+                </Frame>
+
+                <Frame
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    BackgroundColor="{StaticResource ColorTarjeta}"
+                    BorderColor="{StaticResource ColorBordeTarjeta}"
+                    CornerRadius="15"
+                    HasShadow="False"
+                    Padding="16">
+
+                    <StackLayout Spacing="5">
+
+                        <Label
+                            Text="Vitesse du vent"
+                            FontSize="14"
+                            TextColor="{StaticResource ColorTextoSecundario}"/>
+
+                        <Label
+                            x:Name="LabelVelocidadViento"
+                            Text="-- km/h"
+                            FontSize="28"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource ColorViento}"/>
+
+                    </StackLayout>
+
+                </Frame>
+
+            </Grid>
+
+            <!-- Direction du vent -->
+
+            <Frame
+                BackgroundColor="{StaticResource ColorTarjeta}"
+                BorderColor="{StaticResource ColorBordeTarjeta}"
+                CornerRadius="15"
+                HasShadow="False"
+                Padding="18">
+
+                <StackLayout
+                    Spacing="10"
+                    HorizontalOptions="FillAndExpand">
+
+                    <Label
+                        Text="Direction du vent"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        TextColor="{StaticResource ColorTextoPrincipal}"
+                        HorizontalTextAlignment="Center"/>
+
+                    <Grid
+                        WidthRequest="210"
+                        HeightRequest="210"
+                        HorizontalOptions="Center">
+
+                        <Frame
+                            WidthRequest="160"
+                            HeightRequest="160"
+                            CornerRadius="80"
+                            Padding="0"
+                            BackgroundColor="{StaticResource ColorBrujulaFondo}"
+                            BorderColor="{StaticResource ColorBrujulaBorde}"
+                            HasShadow="False"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"/>
+
+                        <!-- N = Nord, S = Sud, O = Ouest, E = Est -->
+
+                        <Label
+                            Text="N"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource ColorNorte}"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Start"/>
+
+                        <Label
+                            Text="S"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource ColorTextoSecundario}"
+                            HorizontalOptions="Center"
+                            VerticalOptions="End"/>
+
+                        <Label
+                            Text="O"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource ColorTextoSecundario}"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"/>
+
+                        <Label
+                            Text="E"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource ColorTextoSecundario}"
+                            HorizontalOptions="End"
+                            VerticalOptions="Center"/>
+
+                        <Image
+                            x:Name="FlechaDireccionViento"
+                            Source="flecha.png"
+                            WidthRequest="90"
+                            HeightRequest="90"
+                            Aspect="AspectFit"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            AnchorX="0.5"
+                            AnchorY="0.5"/>
+
+                    </Grid>
+
+                    <Label
+                        x:Name="LabelDireccionViento"
+                        Text="-- · --°"
+                        FontSize="21"
+                        FontAttributes="Bold"
+                        TextColor="{StaticResource ColorDireccionViento}"
+                        HorizontalTextAlignment="Center"/>
+
+                </StackLayout>
+
+            </Frame>
+
+            <!--
+                ========================================================
+                Graphiques.
+
+                Reproduisent les panneaux "timeseries" du tableau de
+                bord Grafana (dashboard_davis.json), plus les capteurs
+                supplémentaires du montage.
+
+                Ils ne sont plus dessinés par Microcharts mais par
+                PintorGrafica : axes, grille et échelle fixe.
+                ========================================================
+            -->
+
+            <Label
+                Text="Graphiques"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="{StaticResource ColorAcento}"
+                Margin="0,16,0,0"/>
+
+            <Label
+                Text="Axe horizontal : nombre d'échantillons avant le plus récent."
+                FontSize="13"
+                TextColor="{StaticResource ColorTextoSecundario}"
+                Margin="0,0,0,4"/>
+
+            <!-- Température -->
+
+            <Frame
+                BackgroundColor="{StaticResource ColorTarjeta}"
+                BorderColor="{StaticResource ColorBordeTarjeta}"
+                CornerRadius="15"
+                HasShadow="False"
+                Padding="16">
+
+                <StackLayout Spacing="12">
+
+                    <StackLayout Spacing="2">
+
+                        <Label
+                            Text="Température"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource ColorTextoPrincipal}"/>
+
+                        <Label
+                            Text="Température ambiante. Échelle de -5 à 50 °C."
+                            FontSize="12"
+                            TextColor="{StaticResource ColorTextoSecundario}"/>
+
+                    </StackLayout>
+
+                    <local:VistaGrafica
+                        x:Name="GraficaTemperatura"
+                        HeightRequest="230"
+                        HorizontalOptions="FillAndExpand"/>
+
+                </StackLayout>
+
+            </Frame>
+
+            <!-- Température interne -->
+
+            <Frame
+                BackgroundColor="{StaticResource ColorTarjeta}"
+                BorderColor="{StaticResource ColorBordeTarjeta}"
+                CornerRadius="15"
+                HasShadow="False"
+                Padding="16">
+
+                <StackLayout Spacing="12">
+
+                    <StackLayout Spacing="2">
+
+                        <Label
+                            Text="Température interne"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource ColorTextoPrincipal}"/>
+
+                        <Label
+                            Text="Deuxième capteur de température du montage."
+                            FontSize="12"
+                            TextColor="{StaticResource ColorTextoSecundario}"/>
+
+                    </StackLayout>
+
+                    <local:VistaGrafica
+                        x:Name="GraficaTemperaturaInterna"
+                        HeightRequest="230"
+                        HorizontalOptions="FillAndExpand"/>
+
+                </StackLayout>
+
+            </Frame>
+
+            <!-- Température 3 -->
+
+            <Frame
+                BackgroundColor="{StaticResource ColorTarjeta}"
+                BorderColor="{StaticResource ColorBordeTarjeta}"
+                CornerRadius="15"
+                HasShadow="False"
+                Padding="16">
+
+                <StackLayout Spacing="12">
+
+                    <StackLayout Spacing="2">
+
+                        <Label
+                            Text="Température 3"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource ColorTextoPrincipal}"/>
+
+                        <Label
+                            Text="Troisième capteur de température. Nom provisoire."
+                            FontSize="12"
+                            TextColor="{StaticResource ColorTextoSecundario}"/>
+
+                    </StackLayout>
+
+                    <local:VistaGrafica
+                        x:Name="GraficaTemperatura3"
+                        HeightRequest="230"
+                        HorizontalOptions="FillAndExpand"/>
+
+                </StackLayout>
+
+            </Frame>
+
+            <!-- Humidité relative -->
+
+            <Frame
+                BackgroundColor="{StaticResource ColorTarjeta}"
+                BorderColor="{StaticResource ColorBordeTarjeta}"
+                CornerRadius="15"
+                HasShadow="False"
+                Padding="16">
+
+                <StackLayout Spacing="12">
+
+                    <StackLayout Spacing="2">
+
+                        <Label
+                            Text="Humidité relative"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource ColorTextoPrincipal}"/>
+
+                        <Label
+                            Text="Arrive toutes les 150 s, plus espacée que le reste."
+                            FontSize="12"
+                            TextColor="{StaticResource ColorTextoSecundario}"/>
+
+                    </StackLayout>
+
+                    <local:VistaGrafica
+                        x:Name="GraficaHumedad"
+                        HeightRequest="230"
+                        HorizontalOptions="FillAndExpand"/>
+
+                </StackLayout>
+
+            </Frame>
+
+            <!-- Vent -->
+
+            <Frame
+                BackgroundColor="{StaticResource ColorTarjeta}"
+                BorderColor="{StaticResource ColorBordeTarjeta}"
+                CornerRadius="15"
+                HasShadow="False"
+                Padding="16">
+
+                <StackLayout Spacing="12">
+
+                    <StackLayout Spacing="2">
+
+                        <Label
+                            Text="Vitesse du vent"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource ColorTextoPrincipal}"/>
+
+                        <Label
+                            Text="Moyenne de l'intervalle, en km/h."
+                            FontSize="12"
+                            TextColor="{StaticResource ColorTextoSecundario}"/>
+
+                    </StackLayout>
+
+                    <local:VistaGrafica
+                        x:Name="GraficaViento"
+                        HeightRequest="230"
+                        HorizontalOptions="FillAndExpand"/>
+
+                </StackLayout>
+
+            </Frame>
+
+            <!-- Rafale -->
+
+            <Frame
+                BackgroundColor="{StaticResource ColorTarjeta}"
+                BorderColor="{StaticResource ColorBordeTarjeta}"
+                CornerRadius="15"
+                HasShadow="False"
+                Padding="16">
+
+                <StackLayout Spacing="12">
+
+                    <StackLayout Spacing="2">
+
+                        <Label
+                            Text="Rafale de vent"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource ColorTextoPrincipal}"/>
+
+                        <Label
+                            Text="Maximum de l'intervalle, en km/h."
+                            FontSize="12"
+                            TextColor="{StaticResource ColorTextoSecundario}"/>
+
+                    </StackLayout>
+
+                    <local:VistaGrafica
+                        x:Name="GraficaRacha"
+                        HeightRequest="230"
+                        HorizontalOptions="FillAndExpand"/>
+
+                </StackLayout>
+
+            </Frame>
+
+            <!-- Rayonnement solaire -->
+
+            <Frame
+                BackgroundColor="{StaticResource ColorTarjeta}"
+                BorderColor="{StaticResource ColorBordeTarjeta}"
+                CornerRadius="15"
+                HasShadow="False"
+                Padding="16">
+
+                <StackLayout Spacing="12">
+
+                    <StackLayout Spacing="2">
+
+                        <Label
+                            Text="Rayonnement solaire"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource ColorTextoPrincipal}"/>
+
+                        <Label
+                            Text="Irradiance mesurée par le pyranomètre de la station, en W/m²."
+                            FontSize="12"
+                            TextColor="{StaticResource ColorTextoSecundario}"/>
+
+                    </StackLayout>
+
+                    <local:VistaGrafica
+                        x:Name="GraficaRadiacionSolar"
+                        HeightRequest="230"
+                        HorizontalOptions="FillAndExpand"/>
+
+                </StackLayout>
+
+            </Frame>
+
+            <!-- Cellule de référence 1 -->
+
+            <Frame
+                BackgroundColor="{StaticResource ColorTarjeta}"
+                BorderColor="{StaticResource ColorBordeTarjeta}"
+                CornerRadius="15"
+                HasShadow="False"
+                Padding="16">
+
+                <StackLayout Spacing="12">
+
+                    <StackLayout Spacing="2">
+
+                        <Label
+                            Text="Cellule de référence 1"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource ColorTextoPrincipal}"/>
+
+                        <Label
+                            Text="Irradiance en W/m². Même grandeur que le rayonnement solaire, autre capteur."
+                            FontSize="12"
+                            TextColor="{StaticResource ColorTextoSecundario}"/>
+
+                    </StackLayout>
+
+                    <local:VistaGrafica
+                        x:Name="GraficaCeldaReferencia1"
+                        HeightRequest="230"
+                        HorizontalOptions="FillAndExpand"/>
+
+                </StackLayout>
+
+            </Frame>
+
+            <!-- Cellule de référence 2 -->
+
+            <Frame
+                BackgroundColor="{StaticResource ColorTarjeta}"
+                BorderColor="{StaticResource ColorBordeTarjeta}"
+                CornerRadius="15"
+                HasShadow="False"
+                Padding="16">
+
+                <StackLayout Spacing="12">
+
+                    <StackLayout Spacing="2">
+
+                        <Label
+                            Text="Cellule de référence 2"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource ColorTextoPrincipal}"/>
+
+                        <Label
+                            Text="Irradiance en W/m²."
+                            FontSize="12"
+                            TextColor="{StaticResource ColorTextoSecundario}"/>
+
+                    </StackLayout>
+
+                    <local:VistaGrafica
+                        x:Name="GraficaCeldaReferencia2"
+                        HeightRequest="230"
+                        HorizontalOptions="FillAndExpand"/>
+
+                </StackLayout>
+
+            </Frame>
+
+            <!-- Indice UV -->
+
+            <Frame
+                BackgroundColor="{StaticResource ColorTarjeta}"
+                BorderColor="{StaticResource ColorBordeTarjeta}"
+                CornerRadius="15"
+                HasShadow="False"
+                Padding="16">
+
+                <StackLayout Spacing="12">
+
+                    <StackLayout Spacing="2">
+
+                        <Label
+                            Text="Indice UV"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource ColorTextoPrincipal}"/>
+
+                        <Label
+                            Text="Échelle sans unité. Au-dessus de 6, il est considéré comme élevé."
+                            FontSize="12"
+                            TextColor="{StaticResource ColorTextoSecundario}"/>
+
+                    </StackLayout>
+
+                    <local:VistaGrafica
+                        x:Name="GraficaUV"
+                        HeightRequest="230"
+                        HorizontalOptions="FillAndExpand"/>
+
+                </StackLayout>
+
+            </Frame>
+
+            <!-- Pluie par heure -->
+
+            <Frame
+                BackgroundColor="{StaticResource ColorTarjeta}"
+                BorderColor="{StaticResource ColorBordeTarjeta}"
+                CornerRadius="15"
+                HasShadow="False"
+                Padding="16">
+
+                <StackLayout Spacing="12">
+
+                    <StackLayout Spacing="2">
+
+                        <Label
+                            Text="Pluie par heure"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource ColorTextoPrincipal}"/>
+
+                        <Label
+                            Text="Chaque basculement de l'auget vaut 0,2 mm. Au sec, elle reste à zéro."
+                            FontSize="12"
+                            TextColor="{StaticResource ColorTextoSecundario}"/>
+
+                    </StackLayout>
+
+                    <local:VistaGrafica
+                        x:Name="GraficaLluvia"
+                        HeightRequest="230"
+                        HorizontalOptions="FillAndExpand"/>
+
+                </StackLayout>
+
+            </Frame>
+
+            <!-- Qualité de la liaison radio -->
+
+            <Frame
+                BackgroundColor="{StaticResource ColorTarjeta}"
+                BorderColor="{StaticResource ColorBordeTarjeta}"
+                CornerRadius="15"
+                HasShadow="False"
+                Padding="16">
+
+                <StackLayout Spacing="12">
+
+                    <StackLayout Spacing="2">
+
+                        <Label
+                            Text="Qualité de la liaison radio"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource ColorTextoPrincipal}"/>
+
+                        <Label
+                            Text="Puissance reçue de l'ISS. En dessous de −100 dBm, des trames commencent à se perdre."
+                            FontSize="12"
+                            TextColor="{StaticResource ColorTextoSecundario}"/>
+
+                    </StackLayout>
+
+                    <local:VistaGrafica
+                        x:Name="GraficaRssi"
+                        HeightRequest="230"
+                        HorizontalOptions="FillAndExpand"/>
+
+                </StackLayout>
+
+            </Frame>
+
+        </StackLayout>
+
+    </ScrollView>
+
+</ContentPage>

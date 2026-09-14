@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="STageAPP_1.VisualizarDatosPage"
+    Title="Visualiser les données"
+    BackgroundColor="{StaticResource ColorFondoPrincipal}">
+
+	<StackLayout
+        Padding="25"
+        Spacing="20"
+        VerticalOptions="Center">
+
+		<Label
+            Text="Sélectionnez le type de données"
+            FontSize="26"
+            FontAttributes="Bold"
+            TextColor="{StaticResource ColorTextoPrincipal}"
+            HorizontalTextAlignment="Center"
+            Margin="0,0,0,20"/>
+
+		<Button
+            Text="Données météorologiques"
+            FontSize="18"
+            HeightRequest="65"
+            CornerRadius="12"
+            BackgroundColor="{StaticResource ColorAcentoBoton}"
+            TextColor="{StaticResource ColorAcentoTexto}"
+            Clicked="OnDatosMeteorologicosClicked"/>
+
+		<Button
+            Text="Données électriques"
+            FontSize="18"
+            HeightRequest="65"
+            CornerRadius="12"
+            BackgroundColor="{StaticResource ColorAcentoBoton}"
+            TextColor="{StaticResource ColorAcentoTexto}"
+            Clicked="OnDatosElectricosClicked"/>
+
+	</StackLayout>
+
+</ContentPage>
