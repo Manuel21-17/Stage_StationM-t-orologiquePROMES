@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Paleta nativa de Android. Debe mantenerse en sintonía con
+        App.xaml: aquí solo van los colores que Xamarin.Forms no
+        puede controlar (barra de estado y tinte de los widgets
+        nativos como el Picker).
+
+        Los valores anteriores (#3F51B5 indigo, #FF4081 rosa) eran
+        los de la plantilla de proyecto y chocaban con el tema
+        oscuro de la aplicación.
+    -->
+    <color name="launcher_background">#FFFFFF</color>
+    <color name="colorPrimary">#1E2128</color>
+    <color name="colorPrimaryDark">#12141A</color>
+    <color name="colorAccent">#3D7DFF</color>
+</resources>
