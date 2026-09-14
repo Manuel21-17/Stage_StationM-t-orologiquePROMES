@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.companyname.stageapp_1"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+	<uses-sdk
+        android:minSdkVersion="21"
+        android:targetSdkVersion="33" />
+
+	<!-- El teléfono debe soportar Bluetooth Low Energy -->
+	<uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
+	<!-- Permisos para Android 11 y anteriores -->
+	<uses-permission
+        android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30" />
+
+	<uses-permission
+        android:name="android.permission.BLUETOOTH_ADMIN"
+        android:maxSdkVersion="30" />
+
+	<uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION"
+        android:maxSdkVersion="30" />
+
+	<!-- Permisos para Android 12 y superiores -->
+	<uses-permission
+        android:name="android.permission.BLUETOOTH_SCAN"
+        android:usesPermissionFlags="neverForLocation" />
+
+	<uses-permission
+        android:name="android.permission.BLUETOOTH_CONNECT" />
+
+	<!-- Permiso que ya utilizaba tu aplicación -->
+	<uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+	<application
+        android:label="STageAPP_1.Android"
+        android:theme="@style/MainTheme">
+	</application>
+
+</manifest>
